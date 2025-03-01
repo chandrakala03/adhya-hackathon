@@ -1,0 +1,117 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the body takes up the full viewport height */
+  background-color: #f0f0f0;
+  margin: 0;
+  width: 100vw; /* Ensure the body takes up the full viewport width */
+}
+
+.chatbot {
+  width: 100%; /* Take up the full width */
+  max-width: 100%; /* Limit the maximum width on larger screens */
+  height: 100vh; /* Take up the full viewport height */
+  background-color: white;
+  border-radius: 0; /* Remove border radius for full page */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot header {
+  background-color: #a82c48;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.chatbot header h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.chatbox {
+  list-style: none;
+  padding: 20px;
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: calc(100vh - 150px); /* Adjust based on header and input height */
+}
+
+.chatbox li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.chatbox .incoming {
+  justify-content: flex-start;
+}
+
+.chatbox .outgoing {
+  justify-content: flex-end;
+}
+
+.chatbox .incoming p,
+.chatbox .outgoing p {
+  background-color: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chatbox .outgoing p {
+  background-color: #e0f7fa;
+}
+
+.chatbox .incoming span,
+.chatbox .outgoing span {
+  margin: 0 10px;
+  color: #007bff;
+}
+
+.chat-input {
+  display: flex;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input textarea {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  font-size: 1em;
+  max-height: 30px;
+  overflow-y: auto;
+  height: 30px;
+}
+
+.chat-input #send-btn {
+  background-color: #a82c48;
+  color: white;
+  padding: 10px;
+  height:30px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .chatbox p {
+    max-width: 80%;
+  }
+}

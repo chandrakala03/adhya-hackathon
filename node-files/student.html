@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Info Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 600px;
+            margin: 50px auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .box {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #a82c48;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #7a1d36;
+        }
+
+        a {
+            text-decoration: none;
+            color: #a82c48;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #a82c48;
+            color: white;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+  
+        <div class="container">
+            <button onclick="showLogin()">Student Login</button>
+            <button onclick="showSignup()">Sign Up</button>
+        
+            <!-- Sign Up Form -->
+            <div id="signupForm" class="box hidden">
+                <h3>Sign Up</h3>
+                <input type="text" id="signup_id" placeholder="Student ID"><br><br>
+                <input type="text" id="signup_name" placeholder="Name"><br><br>
+                <input type="password" id="signup_password" placeholder="Password"><br><br>
+                <p id="signupMsg" class="error hidden"></p>
+                <button onclick="registerStudent()">Sign Up</button>
+            </div>
+        
+            <!-- Login Form -->
+            <div id="loginForm" class="box hidden">
+                <h3>Login</h3>
+                <input type="text" id="username" placeholder="Student ID"><br><br>
+                <input type="password" id="password" placeholder="Password"><br><br>
+                <p id="errorMsg" class="error hidden">Incorrect Student ID or Password</p>
+                <button onclick="authenticate()">Login</button>
+            </div>
+        </div>
+        
+
+        <!-- Student Details -->
+        <div id="studentDetails" class="box hidden">
+            <h3>Welcome, <span id="studentName"></span>!</h3>
+            <p><strong>Attendance:</strong> <a href="#" onclick="loadAttendance()">View Attendance</a></p>
+            <p><strong>Results:</strong> <a href="#" onclick="loadResults()">View Results</a></p>
+            <p><strong>Fee Details:</strong> <a href="#" onclick="loadFeeDetails()">View Fee Details</a></p>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Attendance Details -->
+        <div id="attendanceDetails" class="box hidden">
+            <h3>Attendance Details</h3>
+            <table id="attendanceTable"></table>
+            <button onclick="backToDetails()">Back</button>
+        </div>
+
+        <!-- Results Details -->
+        <div id="resultsDetails" class="box hidden">
+            <h3>Results</h3>
+            <div id="resultsData"></div>
+            <button onclick="backToDetails()">Back</button>
+        </div>
+
+        <!-- Fee Details -->
+        <div id="feeDetails" class="box hidden">
+            <h3>Fee Details</h3>
+            <table id="feeTable"></table>
+            <button onclick="backToDetails()">Back</button>
+        </div>
+    </div>
+
+    <script src="script.js">
+
+    </script>
+    </body>
+    </html>

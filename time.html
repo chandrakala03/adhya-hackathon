@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-right: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .dropbtn {
+            background-color: #a82c48;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        #timetable-content {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #timetable-content img {
+            width: 80%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    
+<h1 align="center">Get the timetables of respective years below!!!</h1>
+
+<div class="dropdown">
+    <button class="dropbtn">PUC</button>
+    <div class="dropdown-content">
+        <a onclick="loadTimetable('p2.jpeg')">PUC1</a>
+    <a onclick="loadTimetable('p2.jpeg')">PUC2</a>
+    </div>
+    
+</div>
+
+<div class="dropdown">
+    <button class="dropbtn">Engineering Timetables</button>
+    <div class="dropdown-content">
+        <a onclick="loadTimetable('e1.jpeg')">Engg-1</a>
+        <a onclick="loadTimetable('e2.jpeg')">Engg-2</a>
+        <a onclick="loadTimetable('e3.jpeg')">Engg-3</a>
+        <a onclick="loadTimetable('e4.jpeg')">Engg-4</a>
+    </div>
+</div>
+<div class="dropdown">
+    <button class="dropbtn">Academic year</button>
+    <div class="dropdown-content">
+        <a onclick="loadTimetable('acad.jpeg')">Academic year</a>
+    </div>
+    </div>
+<div class="dropdown">
+    <button class="dropbtn">Curriculum</button>
+    <div class="dropdown-content">
+        <a onclick="loadTimetable('curriculum.jpeg')">Curriculum</a>
+    </div>
+</div>
+
+<br><br>
+
+<div id="timetable-content"></div>
+
+<script>
+    function loadTimetable(timetablePath) {
+        document.getElementById('timetable-content').innerHTML = 
+            `<img src="${timetablePath}" alt="Timetable">`;
+    }
+</script>
+
+</body>
+</html>
+

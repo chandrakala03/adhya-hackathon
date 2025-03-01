@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header style */
+        h1 {
+            text-align: center;
+            color: #a82c48;
+            margin-top: 50px;
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        /* Container for the alumni details */
+        .alumni-container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .alumni-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .alumni-container img {
+            border-radius: 8px;
+            margin: 20px 0;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .alumni {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .alumni img {
+            margin-right: 20px;
+            border: 3px solid #2c3e50;
+            border-radius: 8px;
+            width: 240px;
+            height: 250px;
+        }
+
+        .alumni .info {
+            flex: 1;
+        }
+
+        .alumni .info b {
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        .alumni .info p {
+            margin: 10px 0;
+        }
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 768px) {
+            .alumni {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .alumni img {
+                margin-bottom: 15px;
+            }
+
+            .alumni-container {
+                width: 95%;
+            }
+        }
+        
+    /* ... (Your existing CSS) ... */
+
+    #searchInput {
+        display: block; /* Make it a block-level element for centering */
+        margin: 20px auto; /* Center horizontally and add top/bottom margin */
+        width: 300px; /* Set your desired width */
+        height: 20px; /* Set your desired height */
+        border: 2px solid #a82c48; /* Set the border color and width */
+        border-radius: 5px; /* Optional: Add rounded corners */
+        padding: 10px; /* Add padding for better appearance */
+        font-size: 16px; /* Adjust font size as needed */
+        text-align: center; /* Center the text inside the input */
+        outline: none; /* remove default outline */
+    }
+   
+    /* Optional: Style the placeholder text */
+    #searchInput::placeholder {
+        color: #ccc; /* Adjust placeholder color */
+        text-align: center;
+    }
+    .webinar-section {
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        .webinar-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #a82c48;
+        }
+
+        .webinar-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .webinar-card {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .webinar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .webinar-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .webinar-card .webinar-info {
+            padding: 20px;
+        }
+
+        .webinar-card h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .webinar-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .webinar-card .register-btn {
+            display: block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #a82c48;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .webinar-card .register-btn:hover {
+            background-color: #8a233c;
+        }
+    
+
+    </style>
+</head>
+<body>
+    <h1>Connect with our Alumni!</h1>
+    <input type="text" id="searchInput" placeholder="Search Alumni...">
+    <div class="alumni-container" id="alumniContainer">
+    <div class="alumni-container">
+        <div class="alumni">
+            <img src="pic1.jpeg" alt="Cheemala Siva Gopal Reddy">
+            <div class="info">
+                <p><b style="color:#a82c48">Name:</b>Cheemala Siva Gopal Reddy</p>
+                <p><b style="color:#a82c48">Designation:</b> IAS</p>
+                <p><b style="color:#a82c48">Phone:</b> 9876543210</p>
+                <p><b style="color:#a82c48">Gmail:</b>sivagopalch@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="alumni">
+            <img src="pic2.jpeg" alt="G.Vidhyadhari">
+            <div class="info">
+                <p><b style="color:#a82c48">Name:</b> G. Vidhyadhari</p>
+                <p><b style="color:#a82c48">Designation:</b> IAS</p>
+                <p><b style="color:#a82c48">Phone:</b> 7890654321</p>
+                <p><b style="color:#a82c48">Gmail:</b>gvidhyadhari@gmail.com</p>
+            </div>
+        </div>
+       
+        <div class="alumni">
+            <img src="pic5.jpeg" alt="Konam Sandeep">
+            <div class="info">
+                <p><b style="color:#a82c48">Name:</b> Konam Sandeep</p>
+                <p><b style="color:#a82c48">Designation:</b> Co-Founder and CTO at Abridge</p>
+                <p><b style="color:#a82c48">Phone:</b> 9764368935</p>
+                <p><b style="color:#a82c48">Gmail:</b>konamsandeep@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="alumni">
+            <img src="pic4.jpeg" alt="DR. B. Ramu">
+            <div class="info">
+                <p><b style="color:#a82c48">Name:</b> DR. B. Ramu</p>
+                <p><b style="color:#a82c48">Designation:</b> Professor at IIT</p>
+                <p><b style="color:#a82c48">Phone:</b> 8796054321</p>
+                <p><b style="color:#a82c48">Gmail:</b>ramub567@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="alumni">
+            <img src="pic3.jpeg" alt="K.Rajeswari">
+            <div class="info">
+                <p><b style="color:#a82c48">Name:</b> K.Rajeswari</p>
+                <p><b style="color:#a82c48">Designation:</b> Singer</p>
+                <p><b style="color:#a82c48">Phone:</b> 7654890433</p>
+                <p><b style="color:#a82c48">Gmail:</b>rajeswarik@gmail.com</p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="webinar-section">
+        <h2>Upcoming Webinars</h2>
+        <div class="webinar-grid">
+            <div class="webinar-card">
+                <img src="uiux.avif" alt="UI/UX Webinar">
+                <div class="webinar-info">
+                    <h3>Mastering UI/UX Design</h3>
+                    <p>Learn the latest trends and techniques in UI/UX design. Enhance your skills and create stunning user interfaces.</p>
+                    <p>27-02-2025</p>
+                    <a href="#" class="register-btn">Register Now</a>
+                </div>
+            </div>
+
+            <div class="webinar-card">
+                <img src="cloud.jpg" alt="Cloud Computing Webinar">
+                <div class="webinar-info">
+                    <h3>Introduction to Cloud Computing</h3>
+                    <p>Explore the fundamentals of cloud computing and its applications. Discover how to leverage cloud services for your projects.</p>
+                    <p>27-02-2025</p>
+                    <a href="#" class="register-btn">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const alumniContainer = document.getElementById('alumniContainer');
+        const alumniList = document.querySelectorAll('.alumni');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            alumniList.forEach(alumni => {
+                const name = alumni.querySelector('p:nth-child(1)').textContent.toLowerCase();
+                const designation = alumni.querySelector('p:nth-child(2)').textContent.toLowerCase();
+
+                if (name.includes(searchTerm) || designation.includes(searchTerm)) {
+                    alumni.style.display = 'flex';
+                } else {
+                    alumni.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

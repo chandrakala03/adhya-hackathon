@@ -1,0 +1,50 @@
+[
+    {
+        "student_id": "r210000",
+        "name": "Student Name",
+        "password": "password123",
+        "attendance": {
+            "DSP": "88%",
+            "CD": "92%",
+            "WT": "80%",
+            "OR": "85%",
+            "COA": "90%"
+        },
+        "results": {
+            "PUC 1": "85%",
+            "PUC 2": "88%",
+            "Engineering Year 1": "80%",
+            "Engineering Year 2": "82%"
+        },
+        "fee_details": {
+            "PUC 1": { "Total": "₹50,000", "Paid": "₹45,000", "Pending": "₹5,000" },
+            "PUC 2": { "Total": "₹50,000", "Paid": "₹50,000", "Pending": "₹0" },
+            "Engineering Year 1": { "Total": "₹1,00,000", "Paid": "₹90,000", "Pending": "₹10,000" },
+            "Engineering Year 2": { "Total": "₹1,00,000", "Paid": "₹85,000", "Pending": "₹15,000" }
+        }
+    },
+    {
+        "student_id": "r210001",
+        "name": "Student Name",
+        "password": "password123",
+        "attendance": {
+            "DSP": "90%",
+            "CD": "94%",
+            "WT": "85%",
+            "OR": "87%",
+            "COA": "93%"
+        },
+        "results": {
+            "PUC 1": "88%",
+            "PUC 2": "89%",
+            "Engineering Year 1": "82%",
+            "Engineering Year 2": "84%"
+        },
+        "fee_details": {
+            "PUC 1": { "Total": "₹50,000", "Paid": "₹50,000", "Pending": "₹0" },
+            "PUC 2": { "Total": "₹50,000", "Paid": "₹50,000", "Pending": "₹0" },
+            "Engineering Year 1": { "Total": "₹1,00,000", "Paid": "₹95,000", "Pending": "₹5,000" },
+            "Engineering Year 2": { "Total": "₹1,00,000", "Paid": "₹90,000", "Pending": "₹10,000" }
+        }
+    }
+]

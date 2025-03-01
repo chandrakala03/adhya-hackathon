@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: auto; display: flex; }
+        .header { text-align: center; width: 100%; padding: 20px; font-size: 24px; font-weight: bold; }
+        .sidebar { text-align: left; width: 30%; position: absolute; top: 60px; left: 20px; }
+        .activities { margin-top: 20px; }
+        .activities h2 { margin-bottom: 10px; text-align: left; color:#a82c48 }
+        .activities a { display: block; padding: 10px; background: #a82c48; color: white; margin: 5px 0; text-decoration: none; width: 150px; text-align: center; }
+        .activities a:hover { background: #7f2035; }
+        #content { width: 65%; padding: 50px; border: 1px solid #ccc; margin-left: 220px; margin-top: 20px; }
+    </style>
+    <script>
+        function loadContent(activity) {
+            const content = {
+                "dance": `
+                    <h2>Dance</h2>
+                    <p>Our college has a vibrant Dance Club that nurtures talented dancers in both Western and Classical dance forms.</p>
+                    <h3>Western Dance</h3>
+                    <p>The Western Dance team performs various styles, including hip-hop, contemporary, and freestyle. The club actively participates in intercollegiate competitions and cultural fests, bringing home numerous prizes.</p>
+                    <h3>Classical Dance - Kuchipudi</h3>
+                    <p>The college also takes pride in its Kuchipudi dance team, which showcases the rich heritage of Indian classical dance. Many of our students have achieved accolades in national-level competitions and even pursued PhDs in this art form.</p>
+                    <p>Our dedication to dance has earned us multiple awards, and we continue to foster a strong dance community within the college.</p>
+                    <img src="dance.jpeg" alt="Dance Performance" style="width:100%; max-width:500px; margin-top:10px;">
+
+                `,
+                "singing": `
+                    <h2>Singing</h2>
+                    <p>Our college has a talented Singing Club that provides a platform for students to showcase their vocal skills.</p>
+                    <h3>Achievements</h3>
+                    <p>Several students have participated in prestigious TV shows and talent competitions, representing our college on a national level.</p>
+                    <p>The club focuses on various singing styles, including classical, contemporary, and folk music.</p>
+                    <p>Through rigorous training and participation in cultural events, our students have won numerous awards and accolades.</p>
+                    <img src="singing.jpeg" alt="singing Performance" style="width:100%; max-width:500px; margin-top:10px;">
+                `,
+                "sports": `
+                    <h2>Sports</h2>
+                    <p>Our college provides extensive sports training under the guidance of experienced Physical Education teachers.</p>
+                    <h3>Sports Offered</h3>
+                    <p>Students can train in various sports, including hockey, kabaddi, softball, and weightlifting based on their interests.</p>
+                    <h3>Recent Achievements</h3>
+                    <p>Recently, our college successfully completed tournament levels for both PUC boys and girls, as well as engineering students.</p>
+                    <p>Our engineering boys' team proudly won the state-level competition, marking a significant achievement for the sports department.</p>
+                    <p>Additionally, our weightlifting team excelled in competitions, with several students winning gold medals at various state and national events.</p>
+                    <p>Sports at our college not only build physical fitness but also instill discipline, teamwork, and leadership qualities in students.</p>
+                    <img src="sports.jpeg" alt="sports Performance" style="width:100%; max-width:500px; margin-top:10px;">
+                `,
+                "yoga": `
+                    <h2>Yoga</h2>
+                    <p>Yoga is a holistic practice that combines physical postures, breathing techniques, and meditation to promote physical and mental well-being.</p>
+                    <p>Practicing yoga regularly helps improve flexibility, concentration, and stress relief. It also enhances overall health and inner peace.</p>
+                    <h3>Daily Sessions</h3>
+                    <p>Our college conducts daily yoga sessions at the library's backside from 6:00 AM to 7:00 AM. These sessions are open to all students and faculty members.</p>
+                    <p>Yoga has been proven to reduce stress, increase focus, and enhance relaxation, making it a valuable practice for students balancing academics and extracurricular activities.</p>
+                  <img src="yoga.jpeg" alt="yoga Performance" style="width:100%; max-width:500px; margin-top:10px;"><br>
+                  <img src="yoga2.jpeg" alt="yoga Performance" style="width:100%; max-width:500px; margin-top:10px;">
+                  
+                `
+            };
+            document.getElementById("content").innerHTML = content[activity] || "<p style='margin-top: 20px;'>Welcome! Select an activity to view details.</p>";
+        }
+    </script>
+</head>
+<body onload="loadContent()">
+    <div class="header">Activities</div>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Extracurricular Activities</h2>
+            <div class="activities">
+                <a href="#" onclick="loadContent('dance')">Dance</a>
+                <a href="#" onclick="loadContent('singing')">Singing</a>
+                <a href="#" onclick="loadContent('sports')">Sports</a>
+                <a href="#" onclick="loadContent('yoga')">Yoga</a>
+            </div>
+        </div>
+        <div id="content">
+            <p style='margin-top: 20px;'>Welcome! Select an activity to view details.</p>
+        </div>
+    </div>
+</body>
+</html>
+

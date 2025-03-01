@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Info Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 600px;
+            margin: 50px auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .box {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #a82c48;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #7a1d36;
+        }
+        input {
+            padding: 8px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="showLogin()">Student Login</button>
+        <button onclick="showSignup()">Sign Up</button>
+
+        <div id="signupForm" class="box hidden">
+            <h3>Sign Up</h3>
+            <input type="text" id="signup_id" placeholder="Student ID"><br><br>
+            <input type="text" id="signup_name" placeholder="Name"><br><br>
+            <input type="password" id="signup_password" placeholder="Password"><br><br>
+            <button onclick="registerStudent()">Sign Up</button>
+        </div>
+
+        <div id="loginForm" class="box hidden">
+            <h3>Login</h3>
+            <input type="text" id="username" placeholder="Student ID"><br><br>
+            <input type="password" id="password" placeholder="Password"><br><br>
+            <button onclick="authenticate()">Login</button>
+        </div>
+    </div>
+
+    <div id="studentDetails" class="box hidden">
+        <h3>Welcome, <span id="studentName"></span>!</h3>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('signupForm').classList.add('hidden');
+        }
+
+        function showSignup() {
+            document.getElementById('signupForm').classList.remove('hidden');
+            document.getElementById('loginForm').classList.add('hidden');
+        }
+
+        function registerStudent() {
+            const id = document.getElementById('signup_id').value;
+            const name = document.getElementById('signup_name').value;
+            const password = document.getElementById('signup_password').value;
+            
+            if (!id || !name || !password) {
+                alert("All fields are required!");
+                return;
+            }
+            
+            let students = JSON.parse(localStorage.getItem('students')) || [];
+            
+            if (students.find(s => s.id === id)) {
+                alert("Student ID already exists!");
+                return;
+            }
+            
+            students.push({ id, name, password });
+            localStorage.setItem('students', JSON.stringify(students));
+            alert("Sign up successful! You can now log in.");
+            showLogin();
+        }
+
+        function authenticate() {
+            const id = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            let students = JSON.parse(localStorage.getItem('students')) || [];
+            let student = students.find(s => s.id === id && s.password === password);
+            
+            if (student) {
+                document.getElementById('studentName').innerText = student.name;
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('studentDetails').classList.remove('hidden');
+                sessionStorage.setItem('student', JSON.stringify(student));
+            } else {
+                alert("Incorrect Student ID or Password");
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('student');
+            document.getElementById('studentDetails').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Placements</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+        h1, h2 { color: #a82c48; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; background: white; }
+        th, td { padding: 10px; border: 1px solid black; text-align: left; }
+        th { background-color: #a82c48; color: white; }
+        input, select, button { margin: 10px; padding: 8px; }
+        button { background-color: #a82c48; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: darkred; }
+        #adminSection, #placementForm, #changePasswordSection { display: none; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>College Placements</h1>
+    <label for="branchFilter">Select Branch:</label>
+    <select id="branchFilter" onchange="filterPlacements()">
+        <option value="All">All Branches</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="EEE">EEE</option>
+        <option value="MECH">MECH</option>
+        <option value="CHEM">CHEM</option>
+        <option value="Metallurgy">Metallurgy</option>
+    </select>
+    <table>
+        <thead>
+            <tr><th>Student Name</th><th>Branch</th><th>Company</th><th>Package (LPA)</th><th>Action</th></tr>
+        </thead>
+        <tbody id="placementsTable"></tbody>
+    </table>
+    <button onclick="showAdminSection()">Admin Login</button>
+    <div id="adminSection">
+        <h2>Admin Verification</h2>
+        <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+        <button onclick="verifyAdmin()">Submit</button>
+    </div>
+    <div id="placementForm">
+        <h2>Add Placement</h2>
+        <form method="post">
+            <input type="text" id="name" placeholder="Student Name">
+            <input type="text" id="branch" placeholder="Branch">
+            <input type="text" id="company" placeholder="Company">
+            <input type="text" id="package" placeholder="Package (LPA)">
+            <button onclick="addPlacement()">Submit</button>
+            <button onclick="showChangePassword()">Change Password</button>
+        </form>
+        
+    </div>
+    <div id="changePasswordSection">
+        <h2>Change Password</h2>
+        <input type="password" id="currentPassword" placeholder="Current Password">
+        <input type="password" id="newPassword" placeholder="New Password">
+        <button onclick="changePassword()">Change</button>
+    </div>
+    <script>
+        let placements = JSON.parse(localStorage.getItem("placements")) || [
+            { name: "Sowmya", branch: "CSE", company: "Google", package: "12 LPA" },
+            { name: "Chandrakala", branch: "ECE", company: "Intel", package: "10 LPA" }
+        ];
+        let adminPassword = localStorage.getItem("adminPassword") || "admin123";
+
+        function displayPlacements(data) {
+            const table = document.getElementById("placementsTable");
+            table.innerHTML = data.map((p, index) => 
+                `<tr>
+                    <td>${p.name}</td><td>${p.branch}</td><td>${p.company}</td><td>${p.package}</td>
+                    <td><button onclick="confirmDelete(${index})">Delete</button></td>
+                </tr>`).join('');
+        }
+
+        function filterPlacements() {
+            const branch = document.getElementById("branchFilter").value;
+            const filteredData = branch === "All" ? placements : placements.filter(p => p.branch === branch);
+            displayPlacements(filteredData);
+        }
+
+        function showAdminSection() { document.getElementById("adminSection").style.display = "block"; }
+        function verifyAdmin() {
+            if (document.getElementById("adminPassword").value === adminPassword) {
+                document.getElementById("adminSection").style.display = "none";
+                document.getElementById("placementForm").style.display = "block";
+            } else alert("Access Denied!");
+        }
+        
+        function addPlacement() {
+            let name = document.getElementById("name").value;
+            let branch = document.getElementById("branch").value.toUpperCase();
+            let company = document.getElementById("company").value;
+            let package = document.getElementById("package").value + " LPA";
+            
+            if (placements.some(p => p.name === name && p.branch === branch && p.company === company && p.package === package)) {
+                alert("This placement entry already exists!");
+                return;
+            }
+            
+            placements.push({ name, branch, company, package });
+            localStorage.setItem("placements", JSON.stringify(placements));
+            filterPlacements();
+            alert("Placement added!");
+        }
+        
+        function confirmDelete(index) {
+            let password = prompt("Enter Admin Password to Delete");
+            if (password === adminPassword) {
+                deletePlacement(index);
+            } else {
+                alert("Incorrect Password! Deletion not allowed.");
+            }
+        }
+        
+        function deletePlacement(index) {
+            placements.splice(index, 1);
+            localStorage.setItem("placements", JSON.stringify(placements));
+            filterPlacements();
+        }
+        
+        function showChangePassword() { document.getElementById("changePasswordSection").style.display = "block"; }
+        function changePassword() {
+            if (document.getElementById("currentPassword").value === adminPassword) {
+                adminPassword = document.getElementById("newPassword").value;
+                localStorage.setItem("adminPassword", adminPassword);
+                alert("Password Changed Successfully!");
+                document.getElementById("changePasswordSection").style.display = "none";
+            } else alert("Incorrect Current Password!");
+        }
+        
+        window.onload = () => filterPlacements();
+    </script>
+</body>
+</html>
+
